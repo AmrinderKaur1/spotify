@@ -3,14 +3,15 @@ import requests
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-CLIENT_ID = "122e1568dbb649af969946aa67706ad8"
-CLIENT_SECRET = "e576a2c77fb742bfa3c1d31059545157"
+CLIENT_ID = "your-unique-client-token"
+CLIENT_SECRET = "cleint-secret"
 REDIRECT_URI = "http://example.com"
 scope = "playlist-modify-private"
 
+# you can ask user to enter a specific date
 # date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD:")
 
-response = requests.get(url="https://www.billboard.com/charts/hot-100/2021-05-15")
+response = requests.get(url="https://www.billboard.com/charts/hot-100/2021-11-22")
 website_html = response.text
 
 soup = BeautifulSoup(website_html, "html.parser")
@@ -36,6 +37,5 @@ song_uris = [uri]
 
 
 playlist_create = cred.user_playlist_create(user=user_id, name="my_bests", public=False, description="first created playlist")
-print(playlist_create)
 cred.playlist_add_items(playlist_id=playlist_create["id"], items=song_uris)
 
