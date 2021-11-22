@@ -30,7 +30,7 @@ cred = spotipy.Spotify(auth_manager = SpotifyOAuth(
 
 user_id = cred.current_user()["id"]
 # ["id"]
-track_uri = "spotify:track:4iJyoBOLtHqaGxP12qzhQI"
+track_uri = "spotify:track:4iJyoBOLtHqaGxP"
 result = cred.search(q="track:Peaches", type="track")
 uri = result["tracks"]["items"][0]["uri"]
 song_uris = [uri]
